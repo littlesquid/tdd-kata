@@ -23,9 +23,6 @@ func Search(city string) []string {
 	firstPositionExp := fmt.Sprintf("^(%v)\\w+", strings.Title(strings.ToLower(city)))
 	containExp := fmt.Sprintf("\\w+(%v)\\w+", strings.ToLower(city))
 
-	fmt.Println(firstPositionExp)
-	fmt.Println(containExp)
-
 	firstPositionRegex := regexp.MustCompile(firstPositionExp)
 	containRegex := regexp.MustCompile(containExp)
 	for _, c := range cities {
