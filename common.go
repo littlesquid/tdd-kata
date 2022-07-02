@@ -1,6 +1,8 @@
 package main
 
-import "regexp"
+import (
+	"regexp"
+)
 
 func IsMatch(input string, expression string) bool {
 	regex := regexp.MustCompile(expression)

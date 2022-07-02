@@ -7,7 +7,7 @@ import (
 )
 
 func TestDepositToAccount(t *testing.T) {
-	//given
+	//arrange
 	accountStatement := AccountStatement{
 		date:    time.Now().Format("02/01/2006"),
 		amount:  200,
@@ -22,17 +22,17 @@ func TestDepositToAccount(t *testing.T) {
 	amount := 200
 	expected := float32(200)
 
-	//when
+	//act
 	res := Deposit(account, amount)
 
-	//then
+	//assert
 	if float32(expected) != res {
 		t.Error(fmt.Sprintf("balance should be %v but got %v", expected, res))
 	}
 }
 
 func TestDepositToAccount2(t *testing.T) {
-	//given
+	//arrange
 	accountStatement1 := AccountStatement{
 		date: time.Now().Format("02/01/2006"),
 	}
@@ -48,17 +48,17 @@ func TestDepositToAccount2(t *testing.T) {
 	amount := 350
 	expected := float32(700)
 
-	//when
+	//act
 	res := Deposit(account, amount)
 
-	//then
+	//assert
 	if float32(expected) != res {
 		t.Error(fmt.Sprintf("balance should be %v but got %v", expected, res))
 	}
 }
 
 func TestWithdrawAccount(t *testing.T) {
-	//given
+	//arrange
 	accountStatement := AccountStatement{
 		date:    time.Now().Format("02/01/2006"),
 		balance: 500,
@@ -69,17 +69,17 @@ func TestWithdrawAccount(t *testing.T) {
 	}
 	amount := 300
 	expected := float32(200)
-	//when
+	//act
 	res := Withdraw(account, amount)
 
-	//then
+	//assert
 	if float32(expected) != res {
 		t.Error(fmt.Sprintf("balance should be %v but got %v", expected, res))
 	}
 }
 
 func TestWithdrawAccount2(t *testing.T) {
-	//given
+	//arrange
 	accountStatement1 := AccountStatement{
 		date:    time.Now().Format("02/01/2006"),
 		balance: 500,
@@ -93,17 +93,17 @@ func TestWithdrawAccount2(t *testing.T) {
 	}
 	amount := 100
 	expected := float32(300)
-	//when
+	//act
 	res := Withdraw(account, amount)
 
-	//then
+	//assert
 	if float32(expected) != res {
 		t.Error(fmt.Sprintf("balance should be %v but got %v", expected, res))
 	}
 }
 
 func TestPrintStatement(t *testing.T) {
-	//given
+	//arrange
 	accountStatement1 := AccountStatement{
 		date:    "01/04/2014",
 		amount:  1000,
@@ -127,10 +127,10 @@ func TestPrintStatement(t *testing.T) {
 
 	expected := "DATE-------|AMOUNT-----|BALANCE----\n10/04/2014-|500.00----|1400.00----\n02/04/2014-|-100.00----|900.00----\n01/04/2014-|1000.00----|1000.00----"
 
-	//when
+	//act
 	statement := PrintStatement(account)
 
-	//then
+	//assert
 	if expected != statement {
 		t.Error(fmt.Sprintf("balance should be %v but got %v", expected, statement))
 	}
