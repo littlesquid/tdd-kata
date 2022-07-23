@@ -58,7 +58,7 @@ func analyzeGreetingType(input []string) map[string][]string {
 		names = append(names, containingCommaInput...)
 	}
 	for _, n := range names {
-		if isUpperCase(n) {
+		if IsMatch(n, "^[A-Z]+$") {
 			shouteGreet = append(shouteGreet, n)
 		} else {
 			normalGreet = append(normalGreet, n)

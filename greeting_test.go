@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"testing"
 )
 
@@ -14,7 +13,7 @@ func TestGreetWithName(t *testing.T) {
 	res := Greet(&input)
 
 	//assert
-	assert(t, expected, res)
+	Assert(t, expected, res)
 }
 
 func TestGreetWithNullHandle(t *testing.T) {
@@ -25,7 +24,7 @@ func TestGreetWithNullHandle(t *testing.T) {
 	res := Greet(nil)
 
 	//assert
-	assert(t, expected, res)
+	Assert(t, expected, res)
 
 }
 
@@ -38,7 +37,7 @@ func TestGreetWithAllUpperCase(t *testing.T) {
 	res := Greet(&input)
 
 	//assert
-	assert(t, expected, res)
+	Assert(t, expected, res)
 }
 
 func TestGreetWithTwoNameHandle(t *testing.T) {
@@ -50,7 +49,7 @@ func TestGreetWithTwoNameHandle(t *testing.T) {
 	res := Greet(&input)
 
 	//assert
-	assert(t, expected, res)
+	Assert(t, expected, res)
 }
 
 func TestGreetWithArbitaryNumberOfNamesHandle(t *testing.T) {
@@ -62,7 +61,7 @@ func TestGreetWithArbitaryNumberOfNamesHandle(t *testing.T) {
 	res := Greet(&input)
 
 	//assert
-	assert(t, expected, res)
+	Assert(t, expected, res)
 }
 
 func TestGreetWithMixingNormalAndShout(t *testing.T) {
@@ -74,7 +73,7 @@ func TestGreetWithMixingNormalAndShout(t *testing.T) {
 	res := Greet(&input)
 
 	//assert
-	assert(t, expected, res)
+	Assert(t, expected, res)
 }
 
 func TestGreetWithContainingComma(t *testing.T) {
@@ -86,11 +85,5 @@ func TestGreetWithContainingComma(t *testing.T) {
 	res := Greet(&input)
 
 	//assert
-	assert(t, expected, res)
-}
-
-func assert(t *testing.T, expected, actual string) {
-	if expected != actual {
-		t.Error(fmt.Sprintf("result should be '%v' but got %v", expected, actual))
-	}
+	Assert(t, expected, res)
 }
